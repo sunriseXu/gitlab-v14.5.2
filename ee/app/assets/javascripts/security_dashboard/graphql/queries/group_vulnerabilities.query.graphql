@@ -1,0 +1,41 @@
+#import "../fragments/vulnerability.fragment.graphql"
+
+query groupVulnerabilities(
+  $fullPath: ID!
+  $after: String
+  $first: Int = 20
+  $projectId: [ID!]
+  $severity: [VulnerabilitySeverity!]
+  $reportType: [VulnerabilityReportType!]
+  $scanner: [String!]
+  $scannerId: [VulnerabilitiesScannerID!]
+  $state: [VulnerabilityState!]
+  $sort: VulnerabilitySort
+  $hasIssues: Boolean
+  $hasResolution: Boolean
+  $vetEnabled: Boolean = false
+) {
+  group(fullPath: $fullPath) {
+    vulnerabilities(
+      after: $after
+      first: $first
+      severity: $severity
+      reportType: $reportType
+      scanner: $scanner
+      scannerId: $scannerId
+      state: $state
+      projectId: $projectId
+      sort: $sort
+      hasIssues: $hasIssues
+      hasResolution: $hasResolution
+    ) {
+      nodes {
+        ...VulnerabilityFragment
+      }
+      pageInfo {
+        endCursor
+        hasNextPage
+      }
+    }
+  }
+}

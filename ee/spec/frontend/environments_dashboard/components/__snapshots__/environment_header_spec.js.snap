@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Environment Header has a failed pipeline matches the snapshot 1`] = `
+<div
+  class="card-header border-0 py-2 d-flex align-items-center dashboard-card-header-failed"
+>
+  <div
+    class="flex-grow-1 block-truncated"
+  >
+    <gl-link-stub
+      class="js-environment-link cgray"
+      href="/enivronment/1"
+      title="staging"
+    >
+      <span
+        class="js-environment-name bold"
+      >
+         staging
+      </span>
+    </gl-link-stub>
+     
+    <!---->
+  </div>
+   
+  <review-app-link-stub
+    cssclass="btn btn-default btn-sm"
+    display="[object Object]"
+    link="http://example.com"
+    size="medium"
+  />
+</div>
+`;
+
+exports[`Environment Header has errors matches the snapshot 1`] = `
+<div
+  class="card-header border-0 py-2 d-flex align-items-center dashboard-card-header-warning"
+>
+  <div
+    class="flex-grow-1 block-truncated"
+  >
+    <gl-link-stub
+      class="js-environment-link cgray"
+      href="/enivronment/1"
+      title="staging"
+    >
+      <span
+        class="js-environment-name bold"
+      >
+         staging
+      </span>
+    </gl-link-stub>
+     
+    <!---->
+  </div>
+   
+  <review-app-link-stub
+    cssclass="btn btn-default btn-sm"
+    display="[object Object]"
+    link="http://example.com"
+    size="medium"
+  />
+</div>
+`;
+
+exports[`Environment Header renders name and link to app matches the snapshot 1`] = `
+<div
+  class="card-header border-0 py-2 d-flex align-items-center bg-light"
+>
+  <div
+    class="flex-grow-1 block-truncated"
+  >
+    <a
+      class="gl-link js-environment-link cgray"
+      href="/enivronment/1"
+      title="staging"
+    >
+      <span
+        class="js-environment-name bold"
+      >
+         staging
+      </span>
+    </a>
+     
+    <!---->
+  </div>
+   
+  <a
+    class="btn btn-default btn-md gl-button btn btn-default btn-sm"
+    data-track-action="open_review_app"
+    data-track-label="review_app"
+    href="http://example.com"
+    rel="noopener noreferrer nofollow"
+    target="_blank"
+    title=""
+  >
+    <!---->
+     
+    <!---->
+      
+    <span
+      class="gl-button-text"
+    >
+      
+  View app 
+      <svg
+        aria-hidden="true"
+        class="fgray gl-icon s16"
+        data-testid="external-link-icon"
+        role="img"
+      >
+        <use
+          href="#external-link"
+        />
+      </svg>
+    </span>
+  </a>
+</div>
+`;
+
+exports[`Environment Header with environments grouped into a folder matches the snapshot 1`] = `
+<div
+  class="card-header border-0 py-2 d-flex align-items-center bg-light"
+>
+  <div
+    class="flex-grow-1 block-truncated"
+  >
+    <gl-link-stub
+      class="js-environment-link cgray"
+      href="/enivronment/1"
+      title="review/testing"
+    >
+      <span
+        class="js-environment-name bold"
+      >
+         review/testing
+      </span>
+    </gl-link-stub>
+     
+    <gl-badge-stub
+      class="dashboard-card-icon"
+      size="md"
+      variant="muted"
+    >
+      5
+    </gl-badge-stub>
+  </div>
+   
+  <gl-icon-stub
+    class="dashboard-card-icon"
+    name="information"
+    size="16"
+    title="You are looking at the last updated environment"
+  />
+</div>
+`;

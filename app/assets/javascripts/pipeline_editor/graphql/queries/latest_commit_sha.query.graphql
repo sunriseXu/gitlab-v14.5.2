@@ -1,0 +1,11 @@
+query getLatestCommitSha($projectPath: ID!, $ref: String) {
+  project(fullPath: $projectPath) {
+    repository {
+      tree(ref: $ref) {
+        lastCommit {
+          sha
+        }
+      }
+    }
+  }
+}

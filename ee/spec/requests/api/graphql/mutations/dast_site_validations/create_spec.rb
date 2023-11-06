@@ -1,0 +1,41 @@
+# frozen_string_literal: true
+
+require 'spec_helper'
+
+RSpec.describe 'Creating a DAST Site Token' do
+  include GraphqlHelpers
+
+  let_it_be(:project) { create(:project, :repository) }
+  let_it_be(:current_user) { create(:user) }
+  let_it_be(:dast_site) { create(:dast_site, project: project) }
+  let_it_be(:dast_site_token) { create(:dast_site_token, project: project, url: dast_site.url) }
+  let_it_be(:validation_path) { SecureRandom.hex }
+
+  let(:mutation_name) { :dast_site_validation_create }
+
+  let(:mutation) do
+    graphql_mutation(
+      mutation_name,
+      full_path: full_path,
+      dast_site_token_id: global_id_of(dast_site_token),
+      validation_path: validation_path,
+      strategy: Types::DastSiteValidationStrategyEnum.values['TEXT_FILE'].graphql_name
+    )
+  end
+
+  it_behaves_like 'an on-demand scan mutation when user cannot run an on-demand scan'
+
+  it_behaves_like 'an on-demand scan mutation when user can run an on-demand scan' do
+    it 'returns the dast_site_validation id' do
+      subject
+
+      dast_site_validation = DastSiteValidation.find_by!(url_path: validation_path)
+
+      expect(mutation_response["id"]).to eq(global_id_of(dast_site_validation))
+    end
+
+    it 'creates a new dast_site_validation' do
+      expect { subject }.to change { DastSiteValidation.count }.by(1)
+    end
+  end
+end

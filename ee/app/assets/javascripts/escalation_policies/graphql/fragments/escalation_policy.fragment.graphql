@@ -1,0 +1,19 @@
+fragment EscalationPolicy on EscalationPolicyType {
+  id
+  name
+  description
+  rules {
+    id
+    status
+    elapsedTimeSeconds
+    oncallSchedule {
+      iid
+      name
+    }
+    user {
+      username
+      name
+      avatarUrl
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [
+    "dependencies",
+    "report"
+  ],
+  "properties": {
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "$ref": "./dependency.json"
+      }
+    },
+    "report": {
+      "$ref": "./report_list.json"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,11 @@
+.card
+  .card-header
+    %h4.card-title
+      Active synchronizations (#{group.ldap_group_links.count})
+
+  - if group.ldap_group_links.any?
+    %ul.content-list
+      = render collection: group.ldap_group_links, partial: 'ldap_group_links/ldap_group_link', locals: { group: group }
+  - else
+    .card-body
+      No LDAP synchronizations

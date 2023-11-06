@@ -1,0 +1,51 @@
+@import '../../../../../app/assets/stylesheets/page_bundles/cycle_analytics';
+
+.gl-daterange-picker {
+  .gl-datepicker-input {
+    width: 140px;
+
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
+  }
+
+  label {
+    @include media-breakpoint-up(lg) {
+      margin-right: $gl-padding-4;
+    }
+  }
+}
+
+.daterange-indicator {
+  @include media-breakpoint-down(md) {
+    .number-of-days {
+      padding-left: 0.25rem !important;
+      margin-top: 0.25rem;
+    }
+
+    svg {
+      margin-top: 0.45rem;
+    }
+  }
+}
+
+// Since backend wraps event description in a paragraph
+// we need to remove common styles, i.e., spacing
+.stage-item-popover {
+  .stage-event-description p {
+    margin: 0 !important;
+  }
+
+  .popover-body {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .metric-label {
+    flex: 0 0 20%;
+  }
+}
+
+.stage-list-move {
+  transition: transform 0.15s;
+}

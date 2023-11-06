@@ -1,0 +1,4 @@
+%ul.content-list.issuable-list
+  = render partial: 'groups/epics/epic', collection: @epics
+
+= paginate_collection @epics

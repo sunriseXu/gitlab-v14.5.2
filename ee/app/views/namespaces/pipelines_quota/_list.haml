@@ -1,0 +1,76 @@
+- namespace = locals.fetch(:namespace)
+- projects = locals.fetch(:projects)
+- minutes_quota = namespace.ci_minutes_quota
+- minutes_quota_presenter = Ci::Minutes::QuotaPresenter.new(minutes_quota)
+
+
+.pipeline-quota.container-fluid
+  .row
+    .col-sm-6.offset-sm-6
+      - if ::Gitlab.com?
+        = link_to s_('UsageQuota|Buy additional minutes'),
+        buy_additional_minutes_path(namespace),
+        target: buy_additional_minutes_target(namespace),
+        class: 'gl-button btn btn-confirm float-right',
+        data: { track_action: 'click_buy_ci_minutes', track_label: namespace.actual_plan_name, track_property: 'pipeline_quota_page' }
+
+  .row
+    .col-sm-6
+      %strong
+        - last_reset = minutes_quota.reset_date
+        - if last_reset
+          = s_('UsageQuota|Usage since')
+          = last_reset.strftime('%b %d, %Y')
+        - else
+          = s_('UsageQuota|Current period usage')
+      %div
+        = ci_minutes_report(minutes_quota_presenter.monthly_minutes_report)
+        minutes
+        = link_to sprite_icon('question-o'), help_page_path('user/admin_area/settings/continuous_integration', anchor: 'shared-runners-pipeline-minutes-quota'), target: '_blank', 'aria-label': _('Shared runners help link')
+
+    .col-sm-6.right
+      - if minutes_quota_presenter.display_minutes_available_data?
+        #{minutes_quota_presenter.monthly_percent_used}% used
+      - elsif !minutes_quota_presenter.any_project_enabled?
+        0% used
+      - else
+        = s_('UsageQuota|Unlimited')
+
+      = ci_minutes_progress_bar(minutes_quota_presenter.monthly_percent_used)
+
+  = render 'namespaces/pipelines_quota/extra_shared_runners_minutes_quota', namespace: namespace
+
+.js-ci-minutes-usage
+
+%table.table.pipeline-project-metrics
+  %thead
+    %tr
+      %th
+        = _('Project')
+      %th
+        = _('Minutes')
+
+  %tbody
+    - if !minutes_quota_presenter.any_project_enabled?
+      %tr
+        %td{ colspan: 2 }
+          .nothing-here-block
+            - runners_doc_path = help_page_path('ci/runners/index.md')
+            - help_link_start = '<a href="%{url}" target="_blank" rel="noopener noreferrer">'.html_safe % { url: runners_doc_path }
+            = s_('UsageQuota|%{help_link_start}Shared runners%{help_link_end} are disabled, so there are no limits set on pipeline usage').html_safe % { help_link_start: help_link_start, help_link_end: '</a>'.html_safe }
+    - else
+      - projects.each do |project|
+        %tr
+          %td
+            .avatar-container.s20.d-none.d-sm-block
+              = project_icon(project, alt: '', class: 'avatar project-avatar s20')
+            %strong= link_to project.full_name, project
+          %td
+            = project.ci_minutes_used(namespace)
+      - if projects.blank?
+        %tr
+          %td{ colspan: 2 }
+            .nothing-here-block
+              = s_('UsageQuota|This namespace has no projects which use shared runners')
+
+= paginate projects, theme: "gitlab"

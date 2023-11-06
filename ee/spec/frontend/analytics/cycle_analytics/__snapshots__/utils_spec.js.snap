@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Value Stream Analytics utils transformRawStages retains all the stage properties 1`] = `
+Array [
+  Object {
+    "custom": true,
+    "description": "Time before an issue gets scheduled",
+    "endEventIdentifier": "issue_first_added_to_board",
+    "hidden": false,
+    "id": 18,
+    "legend": "Cool legend",
+    "name": "Coolest beans stage",
+    "startEventIdentifier": "issue_first_mentioned_in_commit",
+    "title": "Coolest beans stage",
+  },
+]
+`;

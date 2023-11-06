@@ -1,0 +1,16 @@
+#import "ee/graphql_shared/fragments/epic.fragment.graphql"
+#import "~/graphql_shared/fragments/label.fragment.graphql"
+
+mutation CreateEpic($input: CreateEpicInput!) {
+  createEpic(input: $input) {
+    epic {
+      ...EpicNode
+      labels {
+        nodes {
+          ...Label
+        }
+      }
+    }
+    errors
+  }
+}

@@ -1,0 +1,13 @@
+mutation updatePolicy(
+  $projectPath: ID!
+  $mode: MutationOperationMode = APPEND
+  $name: String
+  $policyYaml: String!
+) {
+  scanExecutionPolicyCommit(
+    input: { name: $name, projectPath: $projectPath, operationMode: $mode, policyYaml: $policyYaml }
+  ) {
+    branch
+    errors
+  }
+}

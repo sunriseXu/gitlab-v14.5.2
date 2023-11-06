@@ -1,0 +1,13 @@
+.compliance-dashboard {
+  // Remove this restriction when working on https://gitlab.com/gitlab-org/gitlab/-/issues/218826
+  min-width: 550px;
+
+  .dashboard-grid {
+    // Column widths: Merge request | approval status | pipeline status | updates
+    grid-template-columns: 1fr 12% 8% 35%;
+  }
+
+  .dashboard-merge-request {
+    grid-column: auto / span 4;
+  }
+}

@@ -1,0 +1,37 @@
+/* EE Trial Specific Stylesheet */
+
+/* Main Nav Overrides */
+.navbar-gitlab.has-trial-banner {
+  top: 52px;
+}
+
+.page-with-sidebar.has-trial-banner {
+  /* Secondary Nav Overrides - Old Nav */
+  margin-top: 102px;
+
+  /* Sidebar Nav Overrides - New Nav */
+  .nav-sidebar {
+    top: 102px;
+  }
+}
+
+/* Trial Banner */
+.gitlab-ee-license-banner.alert {
+  @include media-breakpoint-down(md) {
+    img {
+      width: 30px;
+    }
+
+    a {
+      margin-left: 0 !important;
+
+      &:last-child {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .close {
+    opacity: 0.6;
+  }
+}

@@ -1,0 +1,15 @@
+- page_title _("Locked Files")
+
+.top-area
+  .nav-text
+    = _("Locks give the ability to lock specific file or folder.")
+
+.locks
+  - if @path_locks.any?
+    %ul.content-list
+      = render @path_locks
+
+    = paginate @path_locks, theme: 'gitlab'
+
+  .nothing-here-block{ class: ('hidden' if @path_locks.any?) }
+    = _("Repository has no locks.")

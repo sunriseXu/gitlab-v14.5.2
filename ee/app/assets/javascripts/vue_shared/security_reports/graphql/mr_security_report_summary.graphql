@@ -1,0 +1,21 @@
+query getSecurityReportSummary($fullPath: ID!, $pipelineIid: ID!) {
+  project(fullPath: $fullPath) {
+    pipeline(iid: $pipelineIid) {
+      securityReportSummary {
+        dast {
+          scannedResourcesCsvPath
+          # The commented out fields will be added back by
+          # https://gitlab.com/gitlab-org/gitlab/-/issues/321586
+          #
+          # scannedResourcesCount
+          # scannedResources {
+          #   nodes {
+          #     requestMethod
+          #     url
+          #   }
+          # }
+        }
+      }
+    }
+  }
+}

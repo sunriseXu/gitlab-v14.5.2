@@ -1,0 +1,27 @@
+fragment BaseEpic on Epic {
+  id
+  iid
+  title
+  description
+  state
+  webUrl
+  startDate
+  dueDate
+  hasChildren
+  hasParent
+  confidential
+  descendantWeightSum {
+    closedIssues
+    openedIssues
+  }
+  descendantCounts {
+    openedEpics
+    closedEpics
+  }
+  group {
+    id
+    name
+    fullName
+    fullPath
+  }
+}

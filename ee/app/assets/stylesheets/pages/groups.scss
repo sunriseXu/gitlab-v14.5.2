@@ -1,0 +1,44 @@
+.plan-badge {
+  margin-right: 15px;
+
+  svg {
+    position: relative;
+    top: 3px;
+    height: 16px;
+    width: 16px;
+  }
+
+  &.inline {
+    display: inline-block;
+    margin: 0 4px;
+  }
+
+  &[data-plan='gold'] {
+    color: darken($gl-ultimate-plan, 20%);
+    svg g { fill: $gl-ultimate-plan; }
+  }
+
+  &[data-plan='ultimate'] {
+    color: darken($gl-ultimate-plan, 20%);
+    svg g { fill: $gl-ultimate-plan; }
+  }
+
+  &[data-plan='silver'] {
+    color: darken($gl-premium-plan, 20%);
+    svg g { fill: $gl-premium-plan; }
+  }
+
+  &[data-plan='premium'] {
+    color: darken($gl-premium-plan, 20%);
+    svg g { fill: $gl-premium-plan; }
+  }
+
+  &[data-plan='bronze'] {
+    color: darken($gl-bronze-plan, 20%);
+    svg g { fill: $gl-bronze-plan; }
+  }
+
+  &:not([data-plan]) {
+    svg g { fill: $gray-600; }
+  }
+}

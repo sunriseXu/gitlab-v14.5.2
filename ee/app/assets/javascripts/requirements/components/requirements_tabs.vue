@@ -1,0 +1,123 @@
+<script>
+import { GlBadge, GlButton, GlButtonGroup, GlTabs, GlTab, GlTooltipDirective } from '@gitlab/ui';
+import { __ } from '~/locale';
+import { FilterState } from '../constants';
+
+export default {
+  i18n: {
+    exportAsCsvLabel: __('Export as CSV'),
+    importRequirementsLabel: __('Import requirements'),
+  },
+  directives: {
+    GlTooltip: GlTooltipDirective,
+  },
+  FilterState,
+  components: {
+    GlBadge,
+    GlButton,
+    GlTabs,
+    GlTab,
+    GlButtonGroup,
+  },
+  props: {
+    filterBy: {
+      type: String,
+      required: true,
+    },
+    requirementsCount: {
+      type: Object,
+      required: true,
+    },
+    showCreateForm: {
+      type: Boolean,
+      required: true,
+    },
+    canCreateRequirement: {
+      type: Boolean,
+      required: false,
+    },
+  },
+  computed: {
+    isOpenTab() {
+      return this.filterBy === FilterState.opened;
+    },
+    isArchivedTab() {
+      return this.filterBy === FilterState.archived;
+    },
+    isAllTab() {
+      return this.filterBy === FilterState.all;
+    },
+  },
+};
+</script>
+
+<template>
+  <div class="gl-display-flex gl-align-items-center gl-justify-content-space-between">
+    <gl-tabs content-class="gl-p-0">
+      <gl-tab
+        :title-link-attributes="{ 'data-testid': 'state-opened' }"
+        :active="isOpenTab"
+        @click="$emit('click-tab', { filterBy: $options.FilterState.opened })"
+      >
+        <template #title>
+          <span>{{ __('Open') }}</span>
+          <gl-badge size="sm" class="gl-tab-counter-badge">{{ requirementsCount.OPENED }}</gl-badge>
+        </template>
+      </gl-tab>
+      <gl-tab
+        :title-link-attributes="{ 'data-testid': 'state-archived' }"
+        :active="isArchivedTab"
+        @click="$emit('click-tab', { filterBy: $options.FilterState.archived })"
+      >
+        <template #title>
+          <span>{{ __('Archived') }}</span>
+          <gl-badge size="sm" class="gl-tab-counter-badge">{{
+            requirementsCount.ARCHIVED
+          }}</gl-badge>
+        </template>
+      </gl-tab>
+      <gl-tab
+        :title-link-attributes="{ 'data-testid': 'state-all' }"
+        :active="isAllTab"
+        @click="$emit('click-tab', { filterBy: $options.FilterState.all })"
+      >
+        <template #title>
+          <span>{{ __('All') }}</span>
+          <gl-badge size="sm" class="gl-tab-counter-badge">{{ requirementsCount.ALL }}</gl-badge>
+        </template>
+      </gl-tab>
+    </gl-tabs>
+    <div v-if="isOpenTab && canCreateRequirement" class="nav-controls">
+      <gl-button-group>
+        <gl-button
+          v-gl-tooltip
+          :title="$options.i18n.exportAsCsvLabel"
+          :aria-label="$options.i18n.exportAsCsvLabel"
+          category="secondary"
+          :disabled="showCreateForm"
+          icon="export"
+          @click="$emit('click-export-requirements')"
+        />
+        <gl-button
+          v-gl-tooltip
+          :title="$options.i18n.importRequirementsLabel"
+          :aria-label="$options.i18n.importRequirementsLabel"
+          category="secondary"
+          class="js-import-requirements qa-import-requirements-button"
+          :disabled="showCreateForm"
+          icon="import"
+          @click="$emit('click-import-requirements')"
+        />
+      </gl-button-group>
+
+      <gl-button
+        category="primary"
+        variant="success"
+        class="js-new-requirement qa-new-requirement-button"
+        :disabled="showCreateForm"
+        @click="$emit('click-new-requirement')"
+        >{{ __('New requirement') }}</gl-button
+      >
+    </div>
+  </div>
+</template>

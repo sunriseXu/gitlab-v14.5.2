@@ -1,0 +1,18 @@
+export default () => ({
+  apiUrlManageLicenses: null,
+  approvalsApiPath: null,
+  licensesApiPath: null,
+  canManageLicenses: false,
+  currentLicenseInModal: null,
+  isAdmin: false,
+  isLoadingLicenseReport: false,
+  isLoadingManagedLicenses: false,
+  pendingLicenses: [],
+  loadLicenseReportError: false,
+  managedLicenses: [],
+  newLicenses: [],
+  existingLicenses: [],
+  hasLicenseCheckApprovalRule: false,
+  isLoadingLicenseCheckApprovalRule: false,
+  knownLicenses: [],
+});

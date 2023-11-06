@@ -1,0 +1,18 @@
+---
+data_category: optional
+key_path: counts.api_fuzzing_jobs
+description: Count of API Fuzzing jobs run by job name
+product_section: sec
+product_stage: secure
+product_group: group::dynamic analysis
+product_category: fuzz-testing
+value_type: number
+status: active
+time_frame: all
+data_source: database
+distribution:
+- ee
+tier:
+- ultimate
+performance_indicator_type: []
+milestone: "<13.9"

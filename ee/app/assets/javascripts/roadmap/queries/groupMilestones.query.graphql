@@ -1,0 +1,27 @@
+query groupMilestonesEE(
+  $fullPath: ID!
+  $state: MilestoneStateEnum
+  $timeframe: Timeframe
+  $includeDescendants: Boolean
+) {
+  group(fullPath: $fullPath) {
+    id
+    name
+    milestones(state: $state, includeDescendants: $includeDescendants, timeframe: $timeframe) {
+      edges {
+        node {
+          id
+          description
+          title
+          state
+          dueDate
+          startDate
+          webPath
+          projectMilestone
+          groupMilestone
+          subgroupMilestone
+        }
+      }
+    }
+  }
+}

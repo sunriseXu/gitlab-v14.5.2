@@ -1,0 +1,7 @@
+- project = local_assigns.fetch(:project)
+
+- if show_compliance_framework_badge?(project)
+  - framework = project.compliance_framework_setting.compliance_management_framework
+
+  %span.badge.compliance-framework-pill.ml-2.has-tooltip{ style: "background-color: #{framework.color}", class: text_color_class_for_bg(framework.color), data: { container: 'body' }, title: framework.description }
+    = framework.name

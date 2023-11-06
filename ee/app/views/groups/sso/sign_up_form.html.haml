@@ -1,0 +1,8 @@
+- page_title _('SAML SSO for %{group_name}') % { group_name: sanitize(@group_name) }
+
+%div
+  = render 'tabs', resource: resource, current_user: current_user
+  .tab-content
+    = render 'register_pane', resource: resource
+    - if ::Feature.enabled?(:convert_user_to_group_managed_accounts) && current_user && current_user.verified_email?(resource.email)
+      = render 'authorize_pane'

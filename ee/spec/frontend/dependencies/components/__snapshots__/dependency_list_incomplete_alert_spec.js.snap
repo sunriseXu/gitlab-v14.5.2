@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DependencyListIncompleteAlert component matches the snapshot 1`] = `
+<gl-alert-stub
+  dismissible="true"
+  dismisslabel="Dismiss"
+  primarybuttonlink=""
+  primarybuttontext=""
+  secondarybuttonlink=""
+  secondarybuttontext=""
+  title="Unsupported file(s) detected"
+  variant="warning"
+>
+  <p>
+    
+    One or more of your dependency files are not supported, and the dependency list may be incomplete. Below is a list of supported file types.
+  
+  </p>
+   
+  <ul
+    class="mb-0"
+  >
+    <li>
+      package-lock.json
+    </li>
+    <li>
+      composer.lock
+    </li>
+    <li>
+      Gemfile.lock
+    </li>
+    <li>
+      gems.locked
+    </li>
+    <li>
+      yarn.lock
+    </li>
+    <li>
+      requirements.txt
+    </li>
+    <li>
+      pom.xml
+    </li>
+  </ul>
+</gl-alert-stub>
+`;

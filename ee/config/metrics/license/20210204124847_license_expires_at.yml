@@ -1,0 +1,23 @@
+---
+key_path: license_expires_at
+description: The date the license ends
+product_section: fulfillment
+product_stage: fulfillment
+product_group: group::license
+product_category: license
+value_type: string
+status: active
+data_category: subscription
+time_frame: none
+data_source: license
+instrumentation_class: LicenseMetric
+options:
+  attribute: expires_at
+distribution:
+- ee
+tier:
+- premium
+- ultimate
+introduced_by_url: https://gitlab.com/gitlab-org/gitlab/-/merge_requests/557
+performance_indicator_type: []
+milestone: "<13.9"

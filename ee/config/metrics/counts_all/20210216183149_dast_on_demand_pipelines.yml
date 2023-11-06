@@ -1,0 +1,17 @@
+---
+key_path: counts.dast_on_demand_pipelines
+description: Count of all on-demand DAST pipelines
+product_section: sec
+product_stage: secure
+product_group: group::dynamic analysis
+product_category: dynamic_application_security_testing
+value_type: number
+status: active
+time_frame: all
+data_source: database
+data_category: optional
+distribution:
+- ee
+tier:
+- ultimate
+milestone: "<13.9"

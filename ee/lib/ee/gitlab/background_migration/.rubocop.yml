@@ -1,0 +1,7 @@
+# We are extending the original rubocop file for background migrations
+# .rubocop.yml file.
+---
+inherit_from: ../../../../../lib/gitlab/background_migration/.rubocop.yml
+
+Style/Documentation:
+  Enabled: false

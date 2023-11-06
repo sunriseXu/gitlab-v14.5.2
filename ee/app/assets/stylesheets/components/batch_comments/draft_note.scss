@@ -1,0 +1,75 @@
+$draft-actions-left-margin: 40px + $gl-padding;
+
+.draft-note-component {
+  margin: 0;
+  background: $orange-50;
+
+  .referenced-commands.draft-note-commands {
+    background: $orange-50;
+    font-size: $label-font-size;
+    margin: 0 0 $gl-padding $draft-actions-left-margin;
+  }
+
+  .timeline-entry {
+    background-color: transparent;
+  }
+
+  .draft-note-actions {
+    margin: 0;
+
+    @include notes-media('min', map-get($grid-breakpoints, sm)) {
+      margin-left: $draft-actions-left-margin;
+    }
+  }
+}
+
+button[disabled] {
+  &,
+  &:focus,
+  &:hover {
+    .gl-badge {
+      background: $gray-100;
+      color: $gray-500;
+    }
+  }
+}
+
+.draft-pending-label {
+  background: $orange-500;
+  color: $white;
+  vertical-align: text-top;
+}
+
+.note.draft-note {
+  margin: 0 0 $gl-padding;
+  padding: 0;
+  border: 0;
+
+  &.is-editing {
+    margin-bottom: 0;
+  }
+}
+
+.discussion-body,
+.diff-file {
+  .notes_holder {
+    .notes-content {
+      .notes {
+        &.draft-notes {
+          &::before {
+            border: 0;
+          }
+
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}
+
+.frame,
+.diff-discussions {
+  .badge.is-draft {
+    background-color: $orange-500;
+  }
+}

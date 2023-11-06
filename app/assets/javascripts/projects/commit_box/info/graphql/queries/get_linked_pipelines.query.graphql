@@ -1,0 +1,33 @@
+query getLinkedPipelines($fullPath: ID!, $iid: ID!) {
+  project(fullPath: $fullPath) {
+    pipeline(iid: $iid) {
+      path
+      downstream {
+        nodes {
+          id
+          path
+          project {
+            name
+          }
+          detailedStatus {
+            group
+            icon
+            label
+          }
+        }
+      }
+      upstream {
+        id
+        path
+        project {
+          name
+        }
+        detailedStatus {
+          group
+          icon
+          label
+        }
+      }
+    }
+  }
+}

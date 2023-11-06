@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Project Header matches the snapshot 1`] = `
+<div
+  class="gl-display-flex gl-align-items-center page-title-holder text-secondary gl-justify-content-space-between pb-2 mb-3"
+>
+  <div
+    class="gl-display-flex gl-align-items-center"
+  >
+    <project-avatar-stub
+      class="flex-shrink-0"
+      project="[object Object]"
+      size="20"
+    />
+     
+    <gl-link-stub
+      class="js-namespace-link text-secondary"
+      href="/hello"
+    >
+      <span
+        class="js-namespace gl-mr-3"
+      >
+         hello 
+      </span>
+    </gl-link-stub>
+     
+    <span
+      class="gl-mr-3"
+    >
+      &gt;
+    </span>
+     
+    <project-avatar-stub
+      class="flex-shrink-0"
+      project="[object Object]"
+      size="20"
+    />
+     
+    <gl-link-stub
+      class="js-project-link text-secondary"
+    >
+      <span
+        class="js-name gl-mr-3"
+      >
+         world 
+      </span>
+    </gl-link-stub>
+  </div>
+   
+  <div
+    class="gl-display-flex js-more-actions"
+  >
+    <gl-dropdown-stub
+      category="primary"
+      clearalltext="Clear all"
+      clearalltextclass="gl-px-5"
+      headertext=""
+      hideheaderborder="true"
+      highlighteditemstitle="Selected"
+      highlighteditemstitleclass="gl-px-5"
+      right="true"
+      size="medium"
+      text=""
+      toggleclass="js-more-actions-toggle gl-display-flex gl-align-items-center gl-px-3! gl-bg-transparent gl-shadow-none!"
+      variant="default"
+    >
+       
+      <gl-dropdown-item-stub
+        avatarurl=""
+        class="js-remove-button"
+        iconcolor=""
+        iconname=""
+        iconrightarialabel=""
+        iconrightname=""
+        secondarytext=""
+        variant="link"
+      >
+        <span
+          class="text-danger"
+        >
+           Remove 
+        </span>
+      </gl-dropdown-item-stub>
+    </gl-dropdown-stub>
+  </div>
+</div>
+`;

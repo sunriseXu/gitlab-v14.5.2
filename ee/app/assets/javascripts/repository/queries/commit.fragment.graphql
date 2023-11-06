@@ -1,0 +1,11 @@
+fragment TreeEntryCommit on LogTreeCommit {
+  sha
+  message
+  titleHtml
+  committedDate
+  commitPath
+  fileName
+  filePath
+  type
+  lockLabel
+}

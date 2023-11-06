@@ -1,0 +1,90 @@
+@import 'page_bundles/mixins_and_variables_and_functions';
+
+@mixin important-background($color) {
+  background-color: $color !important;
+}
+
+@mixin circle-fill($color) {
+  border: 1px solid $color;
+  @include important-background($color);
+}
+
+.circle {
+  width: $gl-spacing-scale-3;
+  height: $gl-spacing-scale-3;
+  border: 1px solid var(--gray-300, $gray-300);
+  border-radius: $avatar-radius;
+  @include gl-display-inline-block;
+
+  &-enabled {
+    &-default {
+      @include circle-fill($indigo-600);
+    }
+
+    &-primary {
+      @include circle-fill($data-viz-blue-600);
+    }
+
+    &-warning {
+      @include circle-fill($data-viz-orange-600);
+    }
+
+    &-info {
+      @include circle-fill($data-viz-aqua-500);
+    }
+
+    &-success {
+      @include circle-fill($data-viz-green-600);
+    }
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .actions-cell {
+    width: $gl-spacing-scale-6;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .actions-cell {
+    div {
+      width: 100% !important;
+      text-align: center !important;
+    }
+  }
+
+  .header-cell {
+    div {
+      width: 100% !important;
+      text-align: left !important;
+      padding: 0 !important;
+    }
+  }
+
+  .actions-cell::before,
+  .header-cell::before {
+    @include gl-display-none;
+  }
+
+  .da-table-mobile-header::before {
+    @include gl-text-gray-400;
+  }
+}
+
+.progress-bar {
+  &.bg-primary {
+    @include important-background($data-viz-blue-600);
+  }
+
+  &.bg-warning {
+    @include important-background($data-viz-orange-600);
+  }
+
+  &.bg-info {
+    @include important-background($data-viz-aqua-500);
+  }
+
+  &.bg-success {
+    @include important-background($data-viz-green-600);
+  }
+}

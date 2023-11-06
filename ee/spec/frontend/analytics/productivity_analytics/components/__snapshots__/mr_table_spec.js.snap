@@ -1,0 +1,147 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MergeRequestTable component matches the snapshot 1`] = `
+<div
+  class="mr-table"
+>
+  <div
+    class="card"
+  >
+    <div
+      class="card-header border-bottom-0"
+    >
+      <div
+        class="gl-responsive-table-row table-row-header d-flex py-0"
+        role="row"
+      >
+        <div
+          class="table-section section-50 d-none d-md-flex"
+          role="rowheader"
+        >
+          
+          Title
+        
+        </div>
+         
+        <div
+          class="table-section section-50"
+          role="rowheader"
+        >
+          <div
+            class="d-flex"
+          >
+            <span
+              class="d-none d-md-flex metric-col"
+            >
+              Time to merge
+            </span>
+             
+            <gl-dropdown-stub
+              category="primary"
+              class="w-100 metric-col"
+              clearalltext="Clear all"
+              clearalltextclass="gl-px-5"
+              headertext=""
+              hideheaderborder="true"
+              highlighteditemstitle="Selected"
+              highlighteditemstitleclass="gl-px-5"
+              menu-class="w-100 mw-100"
+              size="medium"
+              text="Time from first comment to last commit"
+              toggleclass="dropdown-menu-toggle w-100"
+              variant="default"
+            >
+              <gl-dropdown-item-stub
+                active-class="is-active"
+                avatarurl=""
+                class="w-100"
+                iconcolor=""
+                iconname=""
+                iconrightarialabel=""
+                iconrightname=""
+                secondarytext=""
+              >
+                <span
+                  class="d-flex"
+                >
+                  <gl-icon-stub
+                    class="flex-shrink-0 gl-mr-2 invisible"
+                    name="mobile-issue-close"
+                    size="16"
+                  />
+                  
+                  Time from first commit until first comment
+                
+                </span>
+              </gl-dropdown-item-stub>
+              <gl-dropdown-item-stub
+                active-class="is-active"
+                avatarurl=""
+                class="w-100"
+                iconcolor=""
+                iconname=""
+                iconrightarialabel=""
+                iconrightname=""
+                secondarytext=""
+              >
+                <span
+                  class="d-flex"
+                >
+                  <gl-icon-stub
+                    class="flex-shrink-0 gl-mr-2"
+                    name="mobile-issue-close"
+                    size="16"
+                  />
+                  
+                  Time from first comment to last commit
+                
+                </span>
+              </gl-dropdown-item-stub>
+              <gl-dropdown-item-stub
+                active-class="is-active"
+                avatarurl=""
+                class="w-100"
+                iconcolor=""
+                iconname=""
+                iconrightarialabel=""
+                iconrightname=""
+                secondarytext=""
+              >
+                <span
+                  class="d-flex"
+                >
+                  <gl-icon-stub
+                    class="flex-shrink-0 gl-mr-2 invisible"
+                    name="mobile-issue-close"
+                    size="16"
+                  />
+                  
+                  Time from last commit to merge
+                
+                </span>
+              </gl-dropdown-item-stub>
+            </gl-dropdown-stub>
+          </div>
+        </div>
+      </div>
+    </div>
+     
+    <div
+      class="card-body py-0"
+    >
+      <merge-request-table-row-stub
+        mergerequest="[object Object]"
+        metriclabel="Time from first comment to last commit"
+        metrictype="time_to_last_commit"
+      />
+      <merge-request-table-row-stub
+        mergerequest="[object Object]"
+        metriclabel="Time from first comment to last commit"
+        metrictype="time_to_last_commit"
+      />
+    </div>
+  </div>
+   
+  <!---->
+</div>
+`;

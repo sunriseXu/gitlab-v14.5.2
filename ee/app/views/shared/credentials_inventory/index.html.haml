@@ -1,0 +1,25 @@
+- page_title _("Credentials")
+
+.top-area.scrolling-tabs-container.inner-page-scroll-tabs
+  .fade-left
+    = sprite_icon('chevron-lg-left', size: 12)
+  .fade-right
+    = sprite_icon('chevron-lg-right', size: 12)
+  = gl_tabs_nav({ class: 'scrolling-tabs nav-links gl-border-0'}) do
+    = gl_tab_link_to s_('CredentialsInventory|Personal Access Tokens'), credentials_inventory_path(filter: 'personal_access_tokens'), { item_active: active_when(show_personal_access_tokens?), class: 'gl-border-0!' }
+    = gl_tab_link_to s_('CredentialsInventory|SSH Keys'), credentials_inventory_path(filter: 'ssh_keys'), { item_active: active_when(show_ssh_keys?), class: 'gl-border-0!' }
+    - if gpg_keys_available?
+      = gl_tab_link_to s_('CredentialsInventory|GPG Keys'), credentials_inventory_path(filter: 'gpg_keys'), { item_active: active_when(show_gpg_keys?), class: 'gl-border-0!' }
+
+- if @credentials.empty?
+  .nothing-here-block.border-top-0
+    = s_('CredentialsInventory|No credentials found')
+- else
+  - if show_personal_access_tokens?
+    = render 'shared/credentials_inventory/personal_access_tokens', credentials: @credentials
+  - elsif show_ssh_keys?
+    = render 'shared/credentials_inventory/ssh_keys', credentials: @credentials
+  - elsif show_gpg_keys?
+    = render 'shared/credentials_inventory/gpg_keys', credentials: @credentials
+
+= paginate_without_count @credentials

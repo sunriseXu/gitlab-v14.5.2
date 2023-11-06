@@ -1,0 +1,13 @@
+query jiraSearchProjectMembers($fullPath: ID!, $search: String) {
+  project(fullPath: $fullPath) {
+    projectMembers(search: $search) {
+      nodes {
+        user {
+          id
+          name
+          username
+        }
+      }
+    }
+  }
+}

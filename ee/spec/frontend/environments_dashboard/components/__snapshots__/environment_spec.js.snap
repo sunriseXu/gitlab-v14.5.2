@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Environment matchs the snapshot 1`] = `
+<div
+  class="dashboard-card card border-0"
+>
+  <environment-header-stub
+    environment="[object Object]"
+    haserrors="true"
+  />
+   
+  <div
+    class="dashboard-card-body card-body dashboard-card-body-warning"
+  >
+    <div
+      class="row"
+    >
+      <div
+        class="col-1 align-self-center px-3"
+      >
+        <user-avatar-link-stub
+          imgalt=""
+          imgcssclasses=""
+          imgsize="32"
+          imgsrc="https://secure.gravatar.com/avatar/e64c7d89f26bd1972efa854d13d7dd61?s=80&d=identicon"
+          linkhref="/root"
+          tooltipplacement="top"
+          tooltiptext="Administrator"
+          username=""
+        />
+      </div>
+       
+      <div
+        class="col-10 col-sm-7 pr-0 pl-5 align-self-center align-middle ci-table"
+      >
+        <div
+          class="branch-commit"
+        >
+          <gl-icon-stub
+            name="work"
+            size="16"
+          />
+           
+          <gl-link-stub
+            class="str-truncated"
+            href="/root/minimal-ruby-app/-/jobs/1097"
+          >
+            
+            production #1097
+          
+          </gl-link-stub>
+        </div>
+         
+        <commit-stub
+          author="[object Object]"
+          commitref="[object Object]"
+          commiturl="https://22878.qa-tunnel.gitlab.info/root/minimal-ruby-app/commit/63492726c2264a0277141d6a6573c3d22ecd7de3"
+          shortsha="63492726"
+          show-branch="true"
+          showrefinfo="true"
+          title="Improve code quality"
+        />
+      </div>
+       
+      <div
+        class="col-sm-3 mt-0 pl-6 pr-0 pl-sm-0 offset-1 offset-sm-0 text-sm-right align-self-center col-12 d-sm-block"
+      >
+        <time-ago-stub
+          time="2019-02-20T16:15:40.122Z"
+          tooltiptext="Finished"
+        />
+         
+        <alerts-stub
+          count="1"
+          lastalert="[object Object]"
+        />
+      </div>
+       
+      <!---->
+    </div>
+  </div>
+</div>
+`;

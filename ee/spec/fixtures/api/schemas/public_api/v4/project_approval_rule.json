@@ -1,0 +1,39 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "name": { "type": "string" },
+    "approvals_required": { "type": "integer" },
+    "contains_hidden_groups": { "type": "boolean" },
+    "rule_type": { "type": "tring" },
+    "eligible_approvers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "protected_branches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    }
+  },
+  "additionalProperties": false
+}

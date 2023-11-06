@@ -1,0 +1,53 @@
+#import "~/graphql_shared/fragments/pageInfoCursorsOnly.fragment.graphql"
+#import "../fragments/vulnerability_location.fragment.graphql"
+
+query pipelineFindings(
+  $fullPath: ID!
+  $pipelineId: ID!
+  $first: Int
+  $after: String
+  $severity: [String!]
+  $reportType: [String!]
+  $scanner: [String!]
+  $state: [VulnerabilityState!]
+  $vetEnabled: Boolean = false
+) {
+  project(fullPath: $fullPath) {
+    pipeline(iid: $pipelineId) {
+      id
+      securityReportFindings(
+        after: $after
+        first: $first
+        severity: $severity
+        reportType: $reportType
+        scanner: $scanner
+        state: $state
+      ) {
+        nodes {
+          uuid
+          name
+          description
+          falsePositive @include(if: $vetEnabled)
+          confidence
+          identifiers {
+            externalType
+            name
+          }
+          reportType
+          scanner {
+            vendor
+          }
+          state
+          severity
+          solution
+          location {
+            ...VulnerabilityLocation
+          }
+        }
+        pageInfo {
+          ...PageInfo
+        }
+      }
+    }
+  }
+}

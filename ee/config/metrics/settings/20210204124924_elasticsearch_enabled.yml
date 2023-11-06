@@ -1,0 +1,19 @@
+---
+data_category: optional
+key_path: elasticsearch_enabled
+description: Whether Elasticsearch is enabled
+product_section: enablement
+product_stage: enablement
+product_group: group::global search
+product_category: global_search
+value_type: boolean
+status: active
+time_frame: none
+data_source: system
+distribution:
+- ee
+tier:
+- premium
+- ultimate
+performance_indicator_type: []
+milestone: "<13.9"

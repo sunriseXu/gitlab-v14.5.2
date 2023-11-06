@@ -1,0 +1,18 @@
+---
+key_path: counts.dast_jobs
+description: Count of DAST jobs run
+product_section: sec
+product_stage: secure
+product_group: group::dynamic analysis
+product_category: dynamic_application_security_testing
+value_type: number
+status: active
+time_frame: all
+data_source: database
+data_category: operational
+distribution:
+- ee
+tier:
+- ultimate
+performance_indicator_type: []
+milestone: "<13.9"

@@ -1,0 +1,3 @@
+---
+extends: ../../../spec/frontend/.eslintrc.yml
+

@@ -1,0 +1,34 @@
+- return unless ci_cd_projects_available?
+- track_label = local_assigns.fetch(:track_label, 'cicd_for_external_repo')
+
+#ci-cd-project-pane.tab-pane
+  = form_for @project, html: { class: 'new_project' } do |f|
+    .project-import.row
+      .col-lg-12
+        %h4
+          = _('Run CI/CD pipelines for external repositories')
+        %p
+          = _('Connect your external repositories, and CI/CD pipelines will run for new commits. A GitLab project will be created with only CI/CD features enabled.')
+        %p
+          - more_info_link = link_to _('More info'), help_page_path('user/project/integrations/github')
+          = _('If using GitHub, you’ll see pipeline statuses on GitHub for your commits and pull requests. %{more_info_link}').html_safe % { more_info_link: more_info_link }
+
+        .form-group.import-btn-container.prepend-top-20.clearfix
+          = f.label :visibility_level, class: 'label-bold' do
+            = s_('ImportButtons|Connect repositories from')
+          .import-buttons
+            %div
+              - if github_import_enabled?
+                = link_to new_import_github_path(ci_cd_only: true), class: 'btn gl-button btn-default js-import-github', data: { track_label: "#{track_label}", track_property: 'github', track_action: "click_button", track_value: "" } do
+                  = sprite_icon('github', css_class: 'gl-button-icon')
+                  GitHub
+            %div
+              - if git_import_enabled?
+                %button.btn.gl-button.btn-default.btn-svg.js-toggle-button.js-import-git-toggle-button{ type: "button", data: { toggle_open_class: 'active', track_label: "#{track_label}", track_property: 'repo_url', track_action: "click_button", track_value: "" } }
+                  = sprite_icon('link', css_class: 'gl-button-icon')
+                  = _('Repo by URL')
+      .col-lg-12
+        .js-toggle-content.toggle-import-form
+          %hr
+            = render "shared/import_form", f: f, ci_cd_only: true
+            = render 'new_project_fields', f: f, project_name_id: "import-url-name", ci_cd_only: true, hide_init_with_readme: true, track_label: track_label

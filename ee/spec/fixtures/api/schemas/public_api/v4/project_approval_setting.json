@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "id": { "type": "integer" },
+    "name": { "type": "string" },
+    "approvals_required": { "type": "integer" },
+    "contains_hidden_groups": { "type": "boolean" },
+    "rule_type": { "type": "tring" },
+    "approvers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "users": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "protected_branches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {}
+      }
+    },
+    "scanners":{
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "vulnerabilities_allowed": { "type": "integer" },
+    "severity_levels":{
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "vulnerability_states":{
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

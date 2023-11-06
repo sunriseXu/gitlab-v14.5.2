@@ -1,0 +1,40 @@
+#import "~/graphql_shared/fragments/milestone.fragment.graphql"
+#import "~/graphql_shared/fragments/user.fragment.graphql"
+
+fragment IssueNode on Issue {
+  id
+  iid
+  title
+  referencePath: reference(full: true)
+  dueDate
+  timeEstimate
+  totalTimeSpent
+  humanTimeEstimate
+  humanTotalTimeSpent
+  weight
+  confidential
+  hidden
+  webUrl
+  blocked
+  blockedByCount
+  relativePosition
+  epic {
+    id
+  }
+  assignees {
+    nodes {
+      ...User
+    }
+  }
+  milestone {
+    ...MilestoneFragment
+  }
+  labels {
+    nodes {
+      id
+      title
+      color
+      description
+    }
+  }
+}
